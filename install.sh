@@ -3,7 +3,7 @@ if [ -f ~/.bash/.bash_nice ]; then
   if [ -f ~/.bash_nice ]; then
     mv ~/.bash_nice ~/.bash_nice.or
   fi
-  ln -s ~/.bash/bash_nice ~/.bash_nice
+  ln -s ~/.bash/.bash_nice ~/.bash_nice
   source ~/.bash_nice
 fi
 if [ -f ~/.bash/.bash_aliases ]; then
@@ -13,13 +13,13 @@ if [ -f ~/.bash/.bash_aliases ]; then
   ln -s ~/.bash/bash_aliases.sh ~/.bash_aliases
   source ~/.bash_aliases
 fi
-bashrc="~/.profile"
+bashrc=~/.profile
 if [ -f ~/.bashrc ]; then
-  bashrc="~/.bashrc"
+  bashrc=~/.bashrc
 elif [ -f ~/.bash_login ]; then
-  bashrc="~/.bash_login"
+  bashrc=~/.bash_login
 elif [ -f ~/.bash_profile ]; then
-  bashrc="~/.bash_profile"
+  bashrc=~/.bash_profile
 fi
 echo"
 if [ -f ~/.bash_nice ]; then
