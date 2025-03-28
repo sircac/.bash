@@ -6,11 +6,11 @@ alias config="vim ~/.bash_aliases"
 alias confin="source ~/.bash_aliases; echo -e '\n > File .bash_aliases reloaded.\n'"
 
 #-- cd, ls,... --#
-unalias rm
+[[ $(type -t rm) == "alias" ]] && unalias rm
 alias rm="rm -i"
-unalias cp
+[[ $(type -t cp) == "alias" ]] && unalias cp
 alias cp="cp -iav" # https://www.rapidtables.com/code/linux/cp.html
-unalias ls
+[[ $(type -t ls) == "alias" ]] && unalias ls
 alias ls='ls --color'
 lth() { pwd; ls -ltrah --color=auto "$@"; pwd; }
 lth() { 
@@ -38,8 +38,7 @@ alias ..="c .."
 alias ...="c ../.."
 alias -- -="c -"
 alias mo=more
-alias cow="fortune | cowsay -n -f $(ls -1 /usr/share/cowsay/cows | shuf | head -n 1) | lolcat -f" # | aha --black
-
+# alias cow="fortune | cowsay -n -f $(ls -1 /usr/share/cowsay/cows | shuf | head -n 1) | lolcat -f" # | aha --black
 
 #-- terminal tools --#
 e() {
@@ -617,7 +616,7 @@ mypdf2eps() {
 alias pdf2eps=mypdf2eps
 
 # NOTES about image resizing and concatenating:
-unalias img
+[[ $(type -t img) == "alias" ]] && unalias img
 img() {
  echo "imgsize ./*.* # To list image dimensions"
  echo "convert -append *.png out.png # For vertical concatenating"
@@ -712,9 +711,9 @@ alias slideshow=myslideshow
 #! /bin/bash
 # ~/.bash_aliases: called in ~/.bashrc
 
-unalias f &>/dev/null
+[[ $(type -t f) == "alias" ]] && unalias f
 function f { find . -name $@ -print ; } # to find a file in a hierarchy
-unalias h &>/dev/null
+[[ $(type -t h) == "alias" ]] && unalias h
 function h { if [ $# -gt 0 ] ; then history | fgrep $@; else history; fi; } # just type 'h latex' to get the last latex command
 
 #mynewless() {
