@@ -6,11 +6,11 @@ if [ -f ~/.bash/.bash_nice ]; then
   ln -s ~/.bash/.bash_nice ~/.bash_nice
   source ~/.bash_nice
 fi
-if [ -f ~/.bash/.bash_aliases ]; then
+if [ -f ~/.bash/.bash_aliases.sh ]; then
   if [ -f ~/.bash_aliases ]; then
     mv ~/.bash_aliases ~/.bash_aliases.or
   fi
-  ln -s ~/.bash/bash_aliases.sh ~/.bash_aliases
+  ln -s ~/.bash/.bash_aliases.sh ~/.bash_aliases
   source ~/.bash_aliases
 fi
 bashrc=~/.profile
@@ -21,7 +21,7 @@ elif [ -f ~/.bash_login ]; then
 elif [ -f ~/.bash_profile ]; then
   bashrc=~/.bash_profile
 fi
-echo"
+echo "
 if [ -f ~/.bash_nice ]; then
       . ~/.bash_nice
 fi
